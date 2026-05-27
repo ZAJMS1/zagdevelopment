@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { Container } from "@/components/container";
 import { Logo } from "@/components/logo";
 import { site } from "@/lib/site";
@@ -14,13 +14,18 @@ export function Footer() {
             <p className="mt-4 text-sm leading-relaxed text-[var(--fg-muted)]">
               {site.description}
             </p>
-            <div className="mt-6 space-y-2 text-sm text-[var(--fg-muted)]">
+            <div className="mt-6 space-y-3 text-sm text-[var(--fg-muted)]">
               <a
-                href={`mailto:${site.contactEmail}`}
-                className="inline-flex items-center gap-2 hover:text-[var(--fg)]"
+                href="/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-[var(--fg)] transition hover:border-[var(--border-strong)] hover:bg-[var(--surface-2)]"
               >
-                <Mail className="h-4 w-4" aria-hidden />
-                <span>{site.contactEmail}</span>
+                <span className="font-medium">Contact us</span>
+                <ArrowUpRight
+                  className="h-3.5 w-3.5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  aria-hidden
+                />
               </a>
               <div className="inline-flex items-center gap-2">
                 <MapPin className="h-4 w-4" aria-hidden />
