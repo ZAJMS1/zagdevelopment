@@ -71,7 +71,7 @@ export function Hero() {
                     Launch in
                   </dt>
                   <dd className="mt-1 text-2xl font-semibold text-[var(--fg)]">
-                    2–3 wks
+                    5 days
                   </dd>
                 </div>
               </dl>
