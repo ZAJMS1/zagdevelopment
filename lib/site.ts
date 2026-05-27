@@ -31,14 +31,14 @@ export const site = {
     },
     {
       name: "Andrew Stanfield",
-      role: "Co-founder · Design",
-      bio: "Owns the visual side - turning rough ideas into layouts that look polished on every screen size.",
+      role: "Co-founder · Client Success",
+      bio: "Your first point of contact. Handles scoping, communication, and making sure the project lands on time.",
       initials: "AS",
     },
     {
       name: "Gavin Luo",
-      role: "Co-founder · Client Success",
-      bio: "Your first point of contact. Handles scoping, communication, and making sure the project lands on time.",
+      role: "Co-founder · Design",
+      bio: "Owns the visual side - turning rough ideas into layouts that look polished on every screen size.",
       initials: "GL",
     },
   ],
