@@ -1,26 +1,159 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-bg: #15181d;
+  --color-surface: #1d2128;
+  --color-surface-2: #262b34;
+  --color-border: #2f343d;
+  --color-border-strong: #3a414c;
+  --color-fg: #eef1f6;
+  --color-fg-muted: #b1b8c4;
+  --color-fg-subtle: #7c8493;
+
+  --color-navy-50: #eef3fa;
+  --color-navy-100: #d3e0f0;
+  --color-navy-200: #a9c0df;
+  --color-navy-300: #7497c6;
+  --color-navy-400: #4671a8;
+  --color-navy-500: #2c5489;
+  --color-navy-600: #1e3a5f;
+  --color-navy-700: #18304d;
+  --color-navy-800: #142640;
+  --color-navy-900: #0e1a2c;
+
+  --color-silver-50: #f7f8fa;
+  --color-silver-100: #eaeced;
+  --color-silver-200: #d6dadd;
+  --color-silver-300: #c7ccd1;
+  --color-silver-400: #9ea4ad;
+  --color-silver-500: #777e87;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --bg: var(--color-bg);
+  --surface: var(--color-surface);
+  --surface-2: var(--color-surface-2);
+  --border: var(--color-border);
+  --border-strong: var(--color-border-strong);
+  --fg: var(--color-fg);
+  --fg-muted: var(--color-fg-muted);
+  --fg-subtle: var(--color-fg-subtle);
+  --accent: var(--color-navy-500);
+  --accent-strong: var(--color-navy-400);
+  --ring: color-mix(in oklab, var(--color-navy-400) 60%, white);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.light {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #f7f8fa;
+  --surface-2: #eef1f5;
+  --border: #e2e6ec;
+  --border-strong: #c8cfd8;
+  --fg: #11161e;
+  --fg-muted: #4a525e;
+  --fg-subtle: #6c7480;
+  --accent: var(--color-navy-600);
+  --accent-strong: var(--color-navy-700);
+  --ring: color-mix(in oklab, var(--color-navy-600) 70%, white);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html,
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--accent) 45%, transparent);
+    color: var(--fg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 6px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility container-narrow {
+  margin-inline: auto;
+  max-width: 72rem;
+  padding-inline: 1.25rem;
+}
+
+@utility hairline {
+  border-color: var(--border);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--fg) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--fg) 6%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 80%);
+}
+
+.bg-radial-glow {
+  background-image: radial-gradient(
+    ellipse 60% 50% at 50% 0%,
+    color-mix(in oklab, var(--accent) 35%, transparent) 0%,
+    transparent 70%
+  );
+}
+
+.shadow-soft {
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, white 6%, transparent) inset,
+    0 10px 30px -12px rgba(0, 0, 0, 0.5);
+}
+
+.shadow-glow {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 30%, transparent),
+    0 12px 40px -10px color-mix(in oklab, var(--accent) 50%, transparent);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
 }
