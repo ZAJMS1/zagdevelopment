@@ -61,7 +61,7 @@ export function ContactForm() {
           <CheckCircle2 className="h-6 w-6" />
         </div>
         <h3 className="mt-5 text-xl font-semibold text-[var(--fg)]">
-          Got it — message received.
+          Got it - message received.
         </h3>
         <p className="mt-2 text-[var(--fg-muted)]">
           We'll be in touch within one business day. Usually faster.
@@ -132,7 +132,7 @@ export function ContactForm() {
           className="block w-full rounded-xl border border-[var(--border)] bg-[var(--surface)] px-4 py-3 text-[15px] text-[var(--fg)] transition focus:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--ring)]/40"
         >
           <option value="">Not sure yet</option>
-          <option value="< $750">Under $750 — let's talk</option>
+          <option value="< $750">Under $750 - let's talk</option>
           <option value="$750 standard">$750 standard package</option>
           <option value="$1,000–$2,500">$1,000 – $2,500 (custom build)</option>
           <option value="$2,500+">$2,500+ (full custom)</option>
@@ -150,7 +150,7 @@ export function ContactForm() {
         />
       </div>
 
-      {/* Honeypot — hidden from real users */}
+      {/* Honeypot - hidden from real users */}
       <div className="hidden" aria-hidden="true">
         <label>
           Don't fill this out if you're human:

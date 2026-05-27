@@ -41,7 +41,7 @@ export default function ContactPage() {
       <Section className="pt-16 sm:pt-20" eyebrow="Contact" title="Tell us about your project.">
         <p className="-mt-4 max-w-2xl text-pretty text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
           A few sentences is plenty to get started. We'll come back with a
-          written quote and — if you'd like — a free homepage concept. No
+          written quote and - if you'd like - a free homepage concept. No
           commitment, no pressure.
         </p>
       </Section>
@@ -91,7 +91,7 @@ export default function ContactPage() {
                   Not sure what to write?
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--fg-muted)]">
-                  Start with these — answer whichever feel useful:
+                  Start with these - answer whichever feel useful:
                 </p>
                 <ul className="mt-4 space-y-2 text-sm text-[var(--fg-muted)]">
                   <li className="flex items-start gap-2">

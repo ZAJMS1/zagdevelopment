@@ -14,7 +14,7 @@ const contactSchema = z.object({
   message: z
     .string()
     .trim()
-    .min(10, "Tell us a little more — at least a sentence or two.")
+    .min(10, "Tell us a little more - at least a sentence or two.")
     .max(5000),
   // Honeypot - bots will fill this; humans won't see it.
   website: z.string().max(0).optional().or(z.literal("")),

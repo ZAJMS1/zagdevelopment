@@ -17,7 +17,7 @@ const values = [
     icon: Handshake,
     title: "Honest scoping",
     description:
-      "We quote what it'll actually cost — and stick to it. No surprise invoices, no 'oh, that's extra' moments halfway through.",
+      "We quote what it'll actually cost - and stick to it. No surprise invoices, no 'oh, that's extra' moments halfway through.",
   },
   {
     icon: HeartHandshake,
@@ -29,7 +29,7 @@ const values = [
     icon: GraduationCap,
     title: "Fresh, not green",
     description:
-      "Yes, we're in college — and yes, that means we work hard, charge fair rates, and care about every project like it's the only one on our plate.",
+      "Yes, we're in college - and yes, that means we work hard, charge fair rates, and care about every project like it's the only one on our plate.",
   },
 ];
 
@@ -57,13 +57,13 @@ export default function AboutPage() {
               <div className="space-y-5 text-[15px] leading-relaxed text-[var(--fg-muted)]">
                 <p>
                   ZAG was born out of a simple observation: the same local
-                  businesses our families have shopped at for years — the
-                  diners, the farms, the corner shops — all needed websites
+                  businesses our families have shopped at for years - the
+                  diners, the farms, the corner shops - all needed websites
                   that didn't look like they'd been left in a drawer since 2014.
                 </p>
                 <p>
                   So we put our heads together. Three freshmen, three different
-                  skill sets — engineering, design, and client communication —
+                  skill sets - engineering, design, and client communication -
                   and a stack we know inside out. Hand-coded Next.js, deployed
                   on Vercel, designed for the screen most of your customers are
                   already using: their phone.
@@ -150,8 +150,8 @@ export default function AboutPage() {
               Let's build something local.
             </h2>
             <p className="mt-4 text-[var(--fg-muted)]">
-              If you're a small business in or around Springfield — or anywhere
-              else, really — we'd love to hear from you.
+              If you're a small business in or around Springfield - or anywhere
+              else, really - we'd love to hear from you.
             </p>
             <div className="mt-8 flex justify-center">
               <ButtonLink href="/contact" size="lg">

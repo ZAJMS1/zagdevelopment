@@ -17,7 +17,7 @@ const steps = [
     title: "Free consultation",
     duration: "Day 1–3",
     description:
-      "You send us a few sentences about your business. We hop on a 20-minute call (or just trade emails — your call), then come back with a written quote and scope. No charge, no pressure.",
+      "You send us a few sentences about your business. We hop on a 20-minute call (or just trade emails - your call), then come back with a written quote and scope. No charge, no pressure.",
     deliverables: [
       "Discovery call or async questionnaire",
       "Fixed price + timeline in writing",
@@ -30,7 +30,7 @@ const steps = [
     title: "Design & revise",
     duration: "Week 1",
     description:
-      "We design a homepage concept first — the page most visitors will actually see. You tell us what to change. We refine until it looks like you, then map out the rest of the pages.",
+      "We design a homepage concept first - the page most visitors will actually see. You tell us what to change. We refine until it looks like you, then map out the rest of the pages.",
     deliverables: [
       "Live, clickable homepage mockup",
       "Unlimited revision rounds",
@@ -43,7 +43,7 @@ const steps = [
     title: "Build & launch",
     duration: "Week 2–3",
     description:
-      "We build the full site in Next.js — every page, every form, every optimization. Then we point your domain at Vercel, flip the switch, and your site is live.",
+      "We build the full site in Next.js - every page, every form, every optimization. Then we point your domain at Vercel, flip the switch, and your site is live.",
     deliverables: [
       "Custom Next.js build",
       "Domain + SSL configured",

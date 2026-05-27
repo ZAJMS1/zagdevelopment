@@ -38,7 +38,7 @@ export default function PortfolioPage() {
         <p className="-mt-4 max-w-2xl text-pretty text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
           ZAG Development launched in 2026 with a small handful of local clients
           in the Springfield, MO area. Our first projects are in design and
-          development right now — we'll be filling this page out as they go
+          development right now - we'll be filling this page out as they go
           live. Until then, here's a peek at what's in motion.
         </p>
       </Section>
@@ -90,7 +90,7 @@ export default function PortfolioPage() {
                 </h3>
                 <p className="mt-3 max-w-xl text-[var(--fg-muted)]">
                   We're actively taking on new projects. If you'd like to be one
-                  of our first showcased clients, reach out — early clients get
+                  of our first showcased clients, reach out - early clients get
                   priority scheduling and a discount.
                 </p>
               </div>

@@ -21,7 +21,7 @@ const valueProps = [
     icon: Gauge,
     title: "Fast on every device",
     description:
-      "Server-rendered Next.js, optimized images, and modern caching. Pages load in under a second — not five.",
+      "Server-rendered Next.js, optimized images, and modern caching. Pages load in under a second - not five.",
   },
   {
     icon: Smartphone,
@@ -51,7 +51,7 @@ const valueProps = [
     icon: Code2,
     title: "Hand-coded, not stretched",
     description:
-      "Every page is custom-built around your business — no bloated templates, no drag-and-drop page-builders.",
+      "Every page is custom-built around your business - no bloated templates, no drag-and-drop page-builders.",
   },
 ];
 
@@ -73,7 +73,7 @@ const services = [
     eyebrow: "Refresh",
     title: "Website Rebuild",
     description:
-      "Already have a site that's slow, dated, or held together with duct tape? We rebuild it on a modern stack — cleaner, faster, easier to update.",
+      "Already have a site that's slow, dated, or held together with duct tape? We rebuild it on a modern stack - cleaner, faster, easier to update.",
     href: "/services",
     bullets: [
       "Migrate existing content",
@@ -89,7 +89,7 @@ const processSteps = [
     n: "01",
     title: "Free consultation",
     description:
-      "Tell us what you need. We'll sketch a plan and a fixed quote — no obligation, no pressure.",
+      "Tell us what you need. We'll sketch a plan and a fixed quote - no obligation, no pressure.",
   },
   {
     n: "02",
@@ -120,7 +120,7 @@ export default function HomePage() {
         align="center"
         eyebrow="Why ZAG"
         title="A site that looks good isn't enough."
-        description="Every detail — speed, SEO, accessibility, the way a button feels under your thumb — adds up to whether visitors stay or bounce. We sweat all of it."
+        description="Every detail - speed, SEO, accessibility, the way a button feels under your thumb - adds up to whether visitors stay or bounce. We sweat all of it."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {valueProps.map((vp, i) => (
@@ -257,7 +257,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 text-[var(--fg-muted)]">
               Reach out with a few sentences about your business. We'll come
-              back with a quote and a homepage concept — no commitment.
+              back with a quote and a homepage concept - no commitment.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <ButtonLink href="/contact" size="lg">

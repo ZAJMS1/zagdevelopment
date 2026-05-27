@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Plain pricing for ZAG Development — $750 one-time setup plus $75/mo maintenance. Pricing is negotiable.",
+    "Plain pricing for ZAG Development - $750 one-time setup plus $75/mo maintenance. Pricing is negotiable.",
 };
 
 const included = [
@@ -35,7 +35,7 @@ const monthlyIncluded = [
 const faqs = [
   {
     q: "Is pricing really negotiable?",
-    a: "Yes. The $750 + $75/mo is a starting point. If you're a non-profit, a friend of a friend, or have a really tight budget — talk to us. We'd rather build the site at a fair price than not build it.",
+    a: "Yes. The $750 + $75/mo is a starting point. If you're a non-profit, a friend of a friend, or have a really tight budget - talk to us. We'd rather build the site at a fair price than not build it.",
   },
   {
     q: "Are there any hidden fees?",
@@ -43,7 +43,7 @@ const faqs = [
   },
   {
     q: "What about the domain?",
-    a: "If you don't have one yet, expect $10–20/year directly to a registrar like Namecheap or Cloudflare — paid in your name, not ours. You always own the domain.",
+    a: "If you don't have one yet, expect $10–20/year directly to a registrar like Namecheap or Cloudflare - paid in your name, not ours. You always own the domain.",
   },
   {
     q: "How do payments work?",
@@ -51,7 +51,7 @@ const faqs = [
   },
   {
     q: "Can I cancel the monthly retainer?",
-    a: "Anytime, no contract lock-in. If you cancel, your site stays yours — we'll hand off the code and help you migrate hosting wherever you'd like.",
+    a: "Anytime, no contract lock-in. If you cancel, your site stays yours - we'll hand off the code and help you migrate hosting wherever you'd like.",
   },
 ];
 
@@ -61,7 +61,7 @@ export default function PricingPage() {
       <Section className="pt-16 sm:pt-20" eyebrow="Pricing" title="Plain pricing. No surprises.">
         <p className="-mt-4 max-w-2xl text-pretty text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
           One flat setup fee plus a simple monthly retainer. Both numbers go on
-          the SOW you sign — no hidden fees, ever.
+          the SOW you sign - no hidden fees, ever.
         </p>
       </Section>
 
@@ -115,7 +115,7 @@ export default function PricingPage() {
                     className="inline-flex h-12 cursor-not-allowed items-center justify-center gap-2 rounded-full border border-dashed border-[var(--border-strong)] bg-transparent px-7 text-[15px] font-medium text-[var(--fg-subtle)]"
                   >
                     <CreditCard className="h-4 w-4" />
-                    Stripe checkout — coming soon
+                    Stripe checkout - coming soon
                   </button>
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function PricingPage() {
       <Section
         eyebrow="Beyond the basics"
         title="Need something custom?"
-        description="Bigger e-commerce, custom integrations, or a totally bespoke build? We do those too — quoted up front."
+        description="Bigger e-commerce, custom integrations, or a totally bespoke build? We do those too - quoted up front."
       >
         <div className="grid gap-5 lg:grid-cols-2">
           <Reveal>
@@ -172,7 +172,7 @@ export default function PricingPage() {
               <CardTitle>Custom packages</CardTitle>
               <CardDescription>
                 More than six pages, booking flows, e-commerce, integrations
-                with your existing tools — anything outside the standard scope
+                with your existing tools - anything outside the standard scope
                 is quoted as a custom build. You see the number before you
                 commit.
               </CardDescription>
@@ -188,7 +188,7 @@ export default function PricingPage() {
             <Card>
               <CardTitle>Non-profits & friends-of-friends</CardTitle>
               <CardDescription>
-                We're three college freshmen running this between classes — if
+                We're three college freshmen running this between classes - if
                 you're a non-profit, a student org, or someone our families
                 know, just tell us. We're happy to work something out.
               </CardDescription>

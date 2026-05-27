@@ -8,7 +8,7 @@ import { Card, CardDescription, CardEyebrow, CardTitle } from "@/components/ui/c
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Custom Next.js websites, rebuilds, and ongoing maintenance — built for small businesses by ZAG Development.",
+    "Custom Next.js websites, rebuilds, and ongoing maintenance - built for small businesses by ZAG Development.",
 };
 
 const services = [
@@ -16,7 +16,7 @@ const services = [
     eyebrow: "Most popular",
     title: "New Website",
     description:
-      "A custom site, hand-coded from scratch in Next.js. Designed around your brand and built for the screen most of your visitors are actually using — their phone.",
+      "A custom site, hand-coded from scratch in Next.js. Designed around your brand and built for the screen most of your visitors are actually using - their phone.",
     bullets: [
       "Up to 6 polished pages",
       "Custom design from scratch",
@@ -50,12 +50,12 @@ const addOns = [
   {
     title: "Booking & forms",
     description:
-      "Multi-step forms, scheduling, file uploads — anything that turns visitors into leads.",
+      "Multi-step forms, scheduling, file uploads - anything that turns visitors into leads.",
   },
   {
     title: "E-commerce starter",
     description:
-      "A small Stripe-powered storefront — built only when you need it, not bolted on by default.",
+      "A small Stripe-powered storefront - built only when you need it, not bolted on by default.",
   },
   {
     title: "Custom illustrations",
@@ -89,7 +89,7 @@ export default function ServicesPage() {
       <Section className="pt-16 sm:pt-20" align="left" eyebrow="Services" title="What we actually do.">
         <p className="-mt-4 max-w-2xl text-pretty text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
           Two core services and a handful of add-ons. Everything's quoted up
-          front in writing — no scope creep, no surprise invoices.
+          front in writing - no scope creep, no surprise invoices.
         </p>
       </Section>
 
@@ -141,7 +141,7 @@ export default function ServicesPage() {
       <Section
         eyebrow="Maintenance"
         title="What $75/mo actually covers."
-        description="Most sites die because no one updates them. The monthly retainer keeps yours alive and current — and gives you a real human to email when something breaks."
+        description="Most sites die because no one updates them. The monthly retainer keeps yours alive and current - and gives you a real human to email when something breaks."
       >
         <div className="grid gap-3 sm:grid-cols-2">
           {maintenance.map((m, i) => (

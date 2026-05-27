@@ -1,6 +1,6 @@
 # ZAG Development
 
-Marketing site for **ZAG Development** — a Springfield, MO startup building affordable, hand-coded Next.js websites for small businesses.
+Marketing site for **ZAG Development** - a Springfield, MO startup building affordable, hand-coded Next.js websites for small businesses.
 
 Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, and Nodemailer. Deploys to Vercel.
 
@@ -25,7 +25,7 @@ Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, and Nodemailer.
 | `/portfolio` | Placeholder "coming soon" cards + open-slot CTA                    |
 | `/about`     | Founder story (Zain Saquer, Andrew Stanfield, Gavin Luo)           |
 | `/contact`   | Form that POSTs to `/api/contact`                                  |
-| `/api/contact` | Server route — Zod-validated, rate-limited, sends email via SMTP |
+| `/api/contact` | Server route - Zod-validated, rate-limited, sends email via SMTP |
 
 ## Local development
 
@@ -44,7 +44,7 @@ The contact form needs SMTP credentials. See [`.env.example`](./.env.example) fo
 - `MAIL_SERVER`, `MAIL_PORT`, `MAIL_USE_TLS`
 - `MAIL_USERNAME`, `MAIL_PASSWORD` (Gmail uses a 16-char App Password)
 - `MAIL_DEFAULT_SENDER`
-- `CONTACT_TO` (optional override — defaults to `MAIL_DEFAULT_SENDER`)
+- `CONTACT_TO` (optional override - defaults to `MAIL_DEFAULT_SENDER`)
 
 ## Deploy to Vercel
 
@@ -53,7 +53,7 @@ The contact form needs SMTP credentials. See [`.env.example`](./.env.example) fo
 3. Under **Environment Variables**, add each key from `.env.example` with its production value.
 4. Deploy. Visit `/contact`, send a test message, and confirm it lands in the configured inbox.
 
-That's it — no build configuration changes needed.
+That's it - no build configuration changes needed.
 
 ## Brand
 
@@ -70,16 +70,16 @@ Tokens live in [`app/globals.css`](./app/globals.css) and are referenced via CSS
 
 Most copy lives in two places:
 
-- [`lib/site.ts`](./lib/site.ts) — name, tagline, pricing, nav, founders
-- Page files in [`app/`](./app/) — each section's headline, body copy, and bullet lists
+- [`lib/site.ts`](./lib/site.ts) - name, tagline, pricing, nav, founders
+- Page files in [`app/`](./app/) - each section's headline, body copy, and bullet lists
 
 Founder bios, pricing numbers, and the contact email can all be updated by editing `lib/site.ts` alone.
 
 ## What's intentionally not built yet
 
-- **Stripe checkout** — pricing page has a placeholder button. Wire up Stripe Checkout when ready.
-- **Real portfolio entries** — placeholder cards only. Replace as projects ship.
-- **Analytics** — one click to enable Vercel Analytics post-deploy.
+- **Stripe checkout** - pricing page has a placeholder button. Wire up Stripe Checkout when ready.
+- **Real portfolio entries** - placeholder cards only. Replace as projects ship.
+- **Analytics** - one click to enable Vercel Analytics post-deploy.
 
 ## License
 

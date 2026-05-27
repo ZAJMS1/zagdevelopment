@@ -11,7 +11,7 @@ export const site = {
     setup: 750,
     monthly: 75,
     negotiableNote:
-      "Pricing is negotiable — every business is different, so reach out and we'll tailor a quote that fits.",
+      "Pricing is negotiable - every business is different, so reach out and we'll tailor a quote that fits.",
   },
   nav: [
     { href: "/", label: "Home" },
@@ -32,7 +32,7 @@ export const site = {
     {
       name: "Andrew Stanfield",
       role: "Co-founder · Design",
-      bio: "Owns the visual side — turning rough ideas into layouts that look polished on every screen size.",
+      bio: "Owns the visual side - turning rough ideas into layouts that look polished on every screen size.",
       initials: "AS",
     },
     {

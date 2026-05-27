@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/container";
 import { ButtonLink } from "@/components/ui/button";
 import { Reveal } from "@/components/reveal";
@@ -19,13 +19,6 @@ export function Hero() {
       <Container>
         <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_1fr]">
           <div className="relative">
-            <Reveal>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)]/70 px-3 py-1.5 text-xs font-medium text-[var(--fg-muted)] backdrop-blur">
-                <Sparkles className="h-3.5 w-3.5 text-[var(--accent-strong)]" />
-                <span>Springfield, MO · Now booking new projects</span>
-              </div>
-            </Reveal>
-
             <Reveal delay={0.05}>
               <h1 className="text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-[var(--fg)] sm:text-5xl lg:text-[64px]">
                 Affordable, professional websites for{" "}
@@ -102,21 +95,6 @@ export function Hero() {
                     priority
                     className="h-auto w-3/4 max-w-xs drop-shadow-[0_18px_60px_rgba(30,58,95,0.5)]"
                   />
-                </div>
-                <div className="absolute inset-x-6 bottom-6 flex items-center justify-between rounded-2xl border border-[var(--border)] bg-[var(--bg)]/80 px-4 py-3 backdrop-blur">
-                  <div>
-                    <p className="text-[11px] uppercase tracking-[0.18em] text-[var(--fg-subtle)]">
-                      Built with
-                    </p>
-                    <p className="text-sm font-medium text-[var(--fg)]">
-                      Next.js · Vercel · Care
-                    </p>
-                  </div>
-                  <div className="flex -space-x-1.5">
-                    <span className="h-2 w-2 rounded-full bg-[var(--color-navy-400)]" />
-                    <span className="h-2 w-2 rounded-full bg-[var(--color-silver-300)]" />
-                    <span className="h-2 w-2 rounded-full bg-[var(--color-navy-200)]" />
-                  </div>
                 </div>
               </div>
             </div>
