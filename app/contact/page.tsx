@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Clock, MessageSquare } from "lucide-react";
+import { Mail, MapPin, Clock, MessageSquare, CalendarClock } from "lucide-react";
 import { Section } from "@/components/section";
 import { Reveal } from "@/components/reveal";
 import { ContactForm } from "@/components/contact-form";
@@ -17,6 +17,11 @@ const facts = [
     label: "Email",
     value: site.contactEmail,
     href: `mailto:${site.contactEmail}`,
+  },
+  {
+    icon: CalendarClock,
+    label: "Business hours",
+    value: `${site.hours.days} · ${site.hours.time}`,
   },
   {
     icon: MapPin,

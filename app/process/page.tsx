@@ -15,7 +15,7 @@ const steps = [
     icon: MessageSquare,
     n: "01",
     title: "Free consultation",
-    duration: "Day 1–3",
+    duration: "Day 1",
     description:
       "You send us a few sentences about your business. We hop on a 20-minute call (or just trade emails - your call), then come back with a written quote and scope. No charge, no pressure.",
     deliverables: [
@@ -28,7 +28,7 @@ const steps = [
     icon: PenLine,
     n: "02",
     title: "Design & revise",
-    duration: "Week 1",
+    duration: "Day 2–3",
     description:
       "We design a homepage concept first - the page most visitors will actually see. You tell us what to change. We refine until it looks like you, then map out the rest of the pages.",
     deliverables: [
@@ -41,7 +41,7 @@ const steps = [
     icon: Rocket,
     n: "03",
     title: "Build & launch",
-    duration: "Week 2–3",
+    duration: "Day 4–5",
     description:
       "We build the full site in Next.js - every page, every form, every optimization. Then we point your domain at Vercel, flip the switch, and your site is live.",
     deliverables: [
@@ -54,7 +54,7 @@ const steps = [
     icon: LifeBuoy,
     n: "04",
     title: "Ongoing care",
-    duration: "Forever (or as long as you want)",
+    duration: "Ongoing",
     description:
       "Your $75/mo retainer kicks in. We host the site, push updates, fix things that break, and reply to your emails the same business day. Cancel anytime.",
     deliverables: [

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, CalendarClock, MapPin } from "lucide-react";
 import { Container } from "@/components/container";
 import { Logo } from "@/components/logo";
 import { site } from "@/lib/site";
@@ -27,9 +27,15 @@ export function Footer() {
                   aria-hidden
                 />
               </a>
-              <div className="inline-flex items-center gap-2">
-                <MapPin className="h-4 w-4" aria-hidden />
-                <span>{site.location}</span>
+              <div className="space-y-1.5">
+                <div className="inline-flex items-center gap-2">
+                  <MapPin className="h-4 w-4" aria-hidden />
+                  <span>{site.location}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CalendarClock className="h-4 w-4" aria-hidden />
+                  <span>{site.hours.short}</span>
+                </div>
               </div>
             </div>
           </div>

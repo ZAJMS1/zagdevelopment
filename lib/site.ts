@@ -5,8 +5,13 @@ export const site = {
   description:
     "ZAG Development builds fast, modern, hand-coded websites for small and growing businesses. One-time setup, simple monthly maintenance, no surprises.",
   url: "https://zagdevelopment.com",
-  contactEmail: "jobpostings.donotreply@gmail.com",
+  contactEmail: "andrew@zagdevelopment.com",
   location: "Springfield, Missouri",
+  hours: {
+    days: "Monday – Friday",
+    time: "8:00 AM – 6:00 PM CT",
+    short: "Mon–Fri · 8am–6pm CT",
+  },
   pricing: {
     setup: 750,
     monthly: 75,
