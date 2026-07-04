@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "ZAG Development is a locally-based startup founded by three college freshmen from Springfield, Missouri.",
+    "ZAG Development is a locally-based startup founded by three high school teenagers from Springfield, Missouri.",
 };
 
 const values = [
@@ -29,7 +29,7 @@ const values = [
     icon: GraduationCap,
     title: "Fresh, not green",
     description:
-      "Yes, we're in college - and yes, that means we work hard, charge fair rates, and care about every project like it's the only one on our plate.",
+      "Yes, we're in high school - and yes, that means we work hard, charge fair rates, and care about every project like it's the only one on our plate.",
   },
 ];
 
@@ -38,8 +38,8 @@ export default function AboutPage() {
     <>
       <Section className="pt-16 sm:pt-20" eyebrow="About" title="A small Springfield startup with a big standard.">
         <p className="-mt-4 max-w-2xl text-pretty text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
-          {site.name} is a locally-based startup founded by three college
-          freshmen from the {site.location} area. We started ZAG because most of
+          {site.name} is a locally-based startup founded by three high school
+          teenagers from the {site.location} area. We started ZAG because most of
           the small businesses we know are either stuck on a website that's a
           decade out of date or paying way too much for one that still doesn't
           look the part. We're here to fix that.
@@ -62,7 +62,7 @@ export default function AboutPage() {
                   that didn't look like they'd been left in a drawer since 2014.
                 </p>
                 <p>
-                  So we put our heads together. Three freshmen, three different
+                  So we put our heads together. Three teenagers, three different
                   skill sets - engineering, design, and client communication -
                   and a stack we know inside out. Hand-coded Next.js, deployed
                   on Vercel, designed for the screen most of your customers are

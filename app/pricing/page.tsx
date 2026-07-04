@@ -188,7 +188,7 @@ export default function PricingPage() {
             <Card>
               <CardTitle>Non-profits & friends-of-friends</CardTitle>
               <CardDescription>
-                We're three college freshmen running this between classes - if
+                We're three high schoolers running this between classes - if
                 you're a non-profit, a student org, or someone our families
                 know, just tell us. We're happy to work something out.
               </CardDescription>
