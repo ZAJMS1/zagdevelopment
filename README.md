@@ -46,14 +46,19 @@ The contact form needs SMTP credentials. See [`.env.example`](./.env.example) fo
 - `MAIL_DEFAULT_SENDER`
 - `CONTACT_TO` (optional override - defaults to `MAIL_DEFAULT_SENDER`)
 
-## Deploy to Vercel
+## Deploy
 
-1. Push this repo to GitHub.
-2. In the Vercel dashboard, **Import Project** and pick the repo.
-3. Under **Environment Variables**, add each key from `.env.example` with its production value.
-4. Deploy. Visit `/contact`, send a test message, and confirm it lands in the configured inbox.
+Production is [zagdevelopment.vercel.app](https://zagdevelopment.vercel.app), connected to this GitHub repo.
 
-That's it - no build configuration changes needed.
+Push to `main` and Vercel deploys automatically:
+
+```bash
+git add -A
+git commit -m "Your message"
+git push origin main
+```
+
+SMTP env vars already live in the Vercel project settings. To change them, use the Vercel dashboard → Project Settings → Environment Variables.
 
 ## Brand
 
