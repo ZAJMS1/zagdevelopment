@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
     });
 
     await transporter.sendMail({
-      from: `ZAG Website <${mailConfig.from}>`,
+      from: `ZAG Development <${mailConfig.from}>`,
       to: mailConfig.to,
       replyTo: `${data.name} <${data.email}>`,
       subject: `New inquiry from ${data.name}${data.business ? ` (${data.business})` : ""}`,
