@@ -109,7 +109,8 @@ function escapeHtml(s: string): string {
     .replace(/'/g, "&#39;");
 }
 
-export function renderDepositEmail(payload: {
+export function renderPaymentEmail(payload: {
+  heading: string;
   name?: string;
   email?: string;
   phone?: string;
@@ -141,7 +142,7 @@ export function renderDepositEmail(payload: {
       <tr>
         <td style="padding:24px 28px;background:linear-gradient(135deg,#18304d 0%,#1e3a5f 100%);">
           <div style="color:#c7ccd1;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;">ZAG Development</div>
-          <div style="color:#ffffff;font-size:20px;font-weight:600;margin-top:4px;">Deposit received</div>
+          <div style="color:#ffffff;font-size:20px;font-weight:600;margin-top:4px;">${escapeHtml(payload.heading)}</div>
         </td>
       </tr>
       <tr>
@@ -153,14 +154,14 @@ export function renderDepositEmail(payload: {
       </tr>
       <tr>
         <td style="padding:14px 28px 22px;border-top:1px solid #eef1f5;color:#6c7480;font-size:12px;">
-          Paid through Stripe Checkout on zagdevelopment.com. Reach out to schedule the kickoff call.
+          Paid through Stripe Checkout on zagdevelopment.com.
         </td>
       </tr>
     </table>
   </body>
 </html>`;
 
-  const text = rows.map(([label, value]) => `${label}: ${value}`).join("\n");
+  const text = [payload.heading, "", ...rows.map(([label, value]) => `${label}: ${value}`)].join("\n");
 
   return { html, text };
 }

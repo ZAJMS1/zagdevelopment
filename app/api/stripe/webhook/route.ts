@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import type Stripe from "stripe";
 import { getStripe } from "@/lib/stripe";
-import { getTransporter, mailConfig, renderDepositEmail } from "@/lib/mail";
+import { getTransporter, mailConfig, renderPaymentEmail } from "@/lib/mail";
 
 export const runtime = "nodejs";
 
@@ -36,16 +36,16 @@ export async function POST(req: NextRequest) {
   ) {
     const session = event.data.object;
     if (session.payment_status === "paid") {
-      await notifyDeposit(session);
+      await notifyPayment(session);
     }
   }
 
   return NextResponse.json({ received: true });
 }
 
-async function notifyDeposit(session: Stripe.Checkout.Session) {
+async function notifyPayment(session: Stripe.Checkout.Session) {
   if (!mailConfig.from || !mailConfig.to) {
-    console.error("Mail config missing 'from' or 'to'; skipping deposit email.");
+    console.error("Mail config missing 'from' or 'to'; skipping payment email.");
     return;
   }
 
@@ -55,12 +55,17 @@ async function notifyDeposit(session: Stripe.Checkout.Session) {
     currency: (session.currency ?? "usd").toUpperCase(),
   });
 
+  const heading =
+    session.mode === "subscription" ? "Monthly plan started" : "Deposit received";
+  const amountLabel = session.mode === "subscription" ? `${amount}/mo` : amount;
+
   try {
-    const { html, text } = renderDepositEmail({
+    const { html, text } = renderPaymentEmail({
+      heading,
       name: details?.name ?? undefined,
       email: details?.email ?? undefined,
       phone: details?.phone ?? undefined,
-      amount,
+      amount: amountLabel,
       sessionId: session.id,
     });
 
@@ -68,12 +73,12 @@ async function notifyDeposit(session: Stripe.Checkout.Session) {
       from: `ZAG Development <${mailConfig.from}>`,
       to: mailConfig.to,
       replyTo: details?.email ?? undefined,
-      subject: `Deposit received: ${amount}${details?.name ? ` from ${details.name}` : ""}`,
+      subject: `${heading}: ${amountLabel}${details?.name ? ` from ${details.name}` : ""}`,
       html,
       text,
     });
   } catch (err) {
     // The payment itself succeeded; don't make Stripe retry over an email failure.
-    console.error("Deposit notification email failed:", err);
+    console.error("Payment notification email failed:", err);
   }
 }

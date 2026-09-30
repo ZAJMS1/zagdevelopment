@@ -6,7 +6,7 @@ import { getStripe } from "@/lib/stripe";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Deposit received",
+  title: "Payment received",
   robots: { index: false },
 };
 
@@ -61,6 +61,33 @@ export default async function CheckoutSuccessPage({
   const email = session.customer_details?.email;
   const paid = session.payment_status === "paid";
 
+  if (session.mode === "subscription") {
+    return (
+      <Section className="pt-16 sm:pt-20" eyebrow="Monthly plan" title="You're all set.">
+        <div className="-mt-4 max-w-2xl space-y-4 text-pretty text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
+          <p className="flex items-start gap-2.5 text-[var(--fg)]">
+            <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[var(--accent-strong)]" aria-hidden />
+            Your {amount}/mo maintenance plan is active.
+          </p>
+          <p>
+            Your card will be charged automatically each month, starting
+            today. Need to update your card or cancel? Just email{" "}
+            <a className="text-[var(--fg)] underline" href={`mailto:${site.contactEmail}`}>
+              {site.contactEmail}
+            </a>
+            .
+          </p>
+        </div>
+        <div className="mt-8">
+          <ButtonLink href="/">
+            Back to home
+            <ArrowRight className="h-4 w-4" />
+          </ButtonLink>
+        </div>
+      </Section>
+    );
+  }
+
   return (
     <Section className="pt-16 sm:pt-20" eyebrow="Deposit received" title="You're on the schedule.">
       <div className="-mt-4 max-w-2xl space-y-4 text-pretty text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
@@ -71,7 +98,7 @@ export default async function CheckoutSuccessPage({
             : <>Your {amount} deposit is processing. Bank payments can take a few business days to clear.</>}
         </p>
         <p>
-          {email && paid ? <>A receipt is on its way to {email}. </> : null}
+          {email && paid ? <>Stripe will email your receipt to {email}. </> : null}
           We&apos;ll reach out within one business day ({site.hours.short}) to
           set up your kickoff call. The remaining balance is due at launch,
           and the ${site.pricing.monthly}/mo retainer starts the month after.

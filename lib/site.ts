@@ -20,6 +20,14 @@ export const site = {
     negotiableNote:
       "Pricing is negotiable - every business is different, so reach out and we'll tailor a quote that fits.",
   },
+  monthlyIncluded: [
+    "Hosting, SSL, uptime monitoring",
+    "Up to 30 min content edits / month",
+    "Security + dependency updates",
+    "Backups with one-click rollback",
+    "Same-day email support",
+    "Quarterly performance review",
+  ],
   nav: [
     { href: "/", label: "Home" },
     { href: "/services", label: "Services" },

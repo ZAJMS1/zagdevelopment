@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import { ArrowRight, Check, CreditCard, Sparkles, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Check, Sparkles, MessageCircle } from "lucide-react";
 import { Section } from "@/components/section";
 import { Reveal } from "@/components/reveal";
-import { ButtonLink, buttonStyles } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
-import { CheckoutNotice } from "@/components/checkout-notice";
+import { PaymentTimeline } from "@/components/payment-timeline";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -25,15 +25,6 @@ const included = [
   "Launch checklist + handoff",
 ];
 
-const monthlyIncluded = [
-  "Hosting, SSL, uptime monitoring",
-  "Up to 30 min content edits / month",
-  "Security + dependency updates",
-  "Backups with one-click rollback",
-  "Same-day email support",
-  "Quarterly performance review",
-];
-
 const faqs = [
   {
     q: "Is pricing really negotiable?",
@@ -49,7 +40,7 @@ const faqs = [
   },
   {
     q: "How do payments work?",
-    a: "Setup is paid 50% upfront, 50% at launch. You can pay the $375 deposit right here through secure Stripe checkout, or we can invoice you after the project is scoped - especially if we've agreed on custom pricing. The $75/mo retainer starts the month after launch.",
+    a: "Setup is paid 50% upfront, 50% at launch. You can pay the $375 deposit right here through secure Stripe checkout, or we can invoice you after the project is scoped - especially if we've agreed on custom pricing. The $75/mo retainer starts the month after launch and is billed automatically through Stripe.",
   },
   {
     q: "Can I cancel the monthly retainer?",
@@ -105,28 +96,12 @@ export default function PricingPage() {
                   {site.pricing.negotiableNote}
                 </p>
 
-                <div id="checkout" className="mt-8 flex scroll-mt-24 flex-wrap gap-3">
-                  <ButtonLink href="/contact" size="lg">
-                    Get a quote
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <ButtonLink href="/contact" variant="secondary" size="lg">
+                    Get a custom quote
                     <ArrowRight className="h-4 w-4" />
                   </ButtonLink>
-                  <form action="/api/checkout" method="POST">
-                    <button
-                      type="submit"
-                      className={buttonStyles({ variant: "secondary", size: "lg" })}
-                    >
-                      <CreditCard className="h-4 w-4" />
-                      Pay ${site.pricing.deposit} deposit
-                    </button>
-                  </form>
                 </div>
-                <p className="mt-3 max-w-md text-xs text-[var(--fg-subtle)]">
-                  Ready to go at the standard price? Pay the 50% deposit
-                  securely through Stripe. Remaining ${site.pricing.setup - site.pricing.deposit} is due at launch.
-                </p>
-                <Suspense>
-                  <CheckoutNotice />
-                </Suspense>
               </div>
 
               <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg)]/40 p-6 backdrop-blur sm:p-8">
@@ -149,6 +124,8 @@ export default function PricingPage() {
                 </ul>
               </div>
             </div>
+
+            <PaymentTimeline />
           </div>
         </Reveal>
       </Section>
@@ -159,7 +136,7 @@ export default function PricingPage() {
         description="The monthly retainer is what keeps your site alive after launch. Hosting, updates, and a real human to email when something needs fixing."
       >
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {monthlyIncluded.map((m, i) => (
+          {site.monthlyIncluded.map((m, i) => (
             <Reveal key={m} delay={i * 0.04}>
               <div className="flex items-start gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-strong)]" aria-hidden />
@@ -168,6 +145,13 @@ export default function PricingPage() {
             </Reveal>
           ))}
         </div>
+        <p className="mt-6 text-sm text-[var(--fg-muted)]">
+          Already a ZAG client?{" "}
+          <Link href="/billing" className="text-[var(--fg)] underline underline-offset-4 hover:text-[var(--accent-strong)]">
+            Set up automatic monthly payments
+          </Link>
+          .
+        </p>
       </Section>
 
       <Section

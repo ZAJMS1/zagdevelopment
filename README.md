@@ -30,6 +30,7 @@ Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, and Nodemailer.
 | `/api/checkout` | Creates a Stripe Checkout session for the $375 deposit and redirects to it |
 | `/api/stripe/webhook` | Verifies Stripe events; emails `CONTACT_TO` when a deposit is paid (card or delayed bank payment) |
 | `/checkout/success` | Post-payment confirmation page |
+| `/billing` | Unlisted page for existing clients to start the $75/mo plan by card |
 
 ## Local development
 
@@ -57,7 +58,7 @@ Stripe checkout needs:
 
 ## Stripe
 
-The "Pay $375 deposit" button on `/pricing` posts to `/api/checkout`, which creates a Checkout session with the amount fixed on the server (`site.pricing.deposit`). No products need to exist in the Stripe dashboard. Each payment creates a Stripe Customer, so the launch balance and the $75/mo retainer can be billed to the same customer later with Invoices or Subscriptions in the dashboard.
+The "Pay $375 deposit" button on `/pricing` and the "Start monthly plan" button on `/billing` post to `/api/checkout` with `plan=deposit` or `plan=monthly`. Amounts are fixed on the server (`site.pricing`), and the Stripe page is branded to match the site via `branding_settings`. To move an existing client onto card payments, send them the `/billing` link on the day their next payment is due. No products need to exist in the Stripe dashboard. Each payment creates a Stripe Customer, so the launch balance and the $75/mo retainer can be billed to the same customer later with Invoices or Subscriptions in the dashboard.
 
 Local testing:
 
