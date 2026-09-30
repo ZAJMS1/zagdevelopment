@@ -11,6 +11,7 @@ Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, and Nodemailer.
 - **Type safety:** TypeScript + Zod (form validation)
 - **Theming:** next-themes (dark default + light toggle)
 - **Email:** Nodemailer over SMTP (Gmail by default)
+- **Payments:** Stripe Checkout (50% setup deposit)
 - **Icons / motion:** lucide-react, motion (framer-motion successor)
 - **Hosting:** Vercel
 
@@ -21,11 +22,14 @@ Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, and Nodemailer.
 | `/`          | Hero, value props, services teaser, process, pricing snapshot, CTA |
 | `/services`  | New website + rebuild + add-ons + monthly maintenance              |
 | `/process`   | 4-step concept-to-launch walkthrough                               |
-| `/pricing`   | $750 setup + $75/mo retainer + FAQ + Stripe placeholder            |
+| `/pricing`   | $750 setup + $75/mo retainer + FAQ + Stripe deposit button         |
 | `/portfolio` | Placeholder "coming soon" cards + open-slot CTA                    |
 | `/about`     | Founder story (Zain Saquer, Andrew Stanfield, Gavin Luo)           |
 | `/contact`   | Form that POSTs to `/api/contact`                                  |
 | `/api/contact` | Server route - Zod-validated, rate-limited, sends email via SMTP |
+| `/api/checkout` | Creates a Stripe Checkout session for the $375 deposit and redirects to it |
+| `/api/stripe/webhook` | Verifies Stripe events; emails `CONTACT_TO` when a deposit is paid (card or delayed bank payment) |
+| `/checkout/success` | Post-payment confirmation page |
 
 ## Local development
 
@@ -45,6 +49,28 @@ The contact form needs SMTP credentials. See [`.env.example`](./.env.example) fo
 - `MAIL_USERNAME`, `MAIL_PASSWORD` (Gmail uses a 16-char App Password)
 - `MAIL_DEFAULT_SENDER`
 - `CONTACT_TO` (optional override - defaults to `MAIL_DEFAULT_SENDER`)
+
+Stripe checkout needs:
+
+- `STRIPE_SECRET_KEY` (`sk_test_...` locally, `sk_live_...` in production)
+- `STRIPE_WEBHOOK_SECRET` (`whsec_...` for the webhook endpoint)
+
+## Stripe
+
+The "Pay $375 deposit" button on `/pricing` posts to `/api/checkout`, which creates a Checkout session with the amount fixed on the server (`site.pricing.deposit`). No products need to exist in the Stripe dashboard. Each payment creates a Stripe Customer, so the launch balance and the $75/mo retainer can be billed to the same customer later with Invoices or Subscriptions in the dashboard.
+
+Local testing:
+
+```bash
+brew install stripe/stripe-cli/stripe
+stripe login
+stripe listen --events checkout.session.completed,checkout.session.async_payment_succeeded \
+  --forward-to localhost:3000/api/stripe/webhook   # prints a whsec_ for .env.local
+```
+
+Pay with test card `4242 4242 4242 4242`, any future expiry, any CVC.
+
+Production: in the Stripe Dashboard → Developers → Webhooks, add an endpoint at `https://zagdevelopment.vercel.app/api/stripe/webhook` listening for `checkout.session.completed` and `checkout.session.async_payment_succeeded`. Put its signing secret and the live secret key in Vercel's environment variables, then redeploy.
 
 ## Deploy
 
@@ -82,7 +108,6 @@ Founder bios, pricing numbers, and the contact email can all be updated by editi
 
 ## What's intentionally not built yet
 
-- **Stripe checkout** - pricing page has a placeholder button. Wire up Stripe Checkout when ready.
 - **Real portfolio entries** - placeholder cards only. Replace as projects ship.
 - **Analytics** - one click to enable Vercel Analytics post-deploy.
 

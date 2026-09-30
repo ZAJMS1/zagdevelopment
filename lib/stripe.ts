@@ -1,0 +1,15 @@
+import Stripe from "stripe";
+
+let client: Stripe | null = null;
+
+// Created lazily so builds succeed before STRIPE_SECRET_KEY is configured.
+export function getStripe(): Stripe {
+  if (!client) {
+    const key = process.env.STRIPE_SECRET_KEY;
+    if (!key) {
+      throw new Error("Missing required environment variable: STRIPE_SECRET_KEY");
+    }
+    client = new Stripe(key);
+  }
+  return client;
+}

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { ArrowRight, Check, CreditCard, Sparkles, MessageCircle } from "lucide-react";
 import { Section } from "@/components/section";
 import { Reveal } from "@/components/reveal";
-import { ButtonLink } from "@/components/ui/button";
+import { ButtonLink, buttonStyles } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import { CheckoutNotice } from "@/components/checkout-notice";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -47,7 +49,7 @@ const faqs = [
   },
   {
     q: "How do payments work?",
-    a: "We're rolling out secure Stripe checkout soon. For now, we invoice directly after the project is scoped. Setup is paid 50% upfront, 50% at launch. The $75/mo retainer starts the month after launch.",
+    a: "Setup is paid 50% upfront, 50% at launch. You can pay the $375 deposit right here through secure Stripe checkout, or we can invoice you after the project is scoped - especially if we've agreed on custom pricing. The $75/mo retainer starts the month after launch.",
   },
   {
     q: "Can I cancel the monthly retainer?",
@@ -103,21 +105,28 @@ export default function PricingPage() {
                   {site.pricing.negotiableNote}
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div id="checkout" className="mt-8 flex scroll-mt-24 flex-wrap gap-3">
                   <ButtonLink href="/contact" size="lg">
                     Get a quote
                     <ArrowRight className="h-4 w-4" />
                   </ButtonLink>
-                  <button
-                    type="button"
-                    disabled
-                    title="Stripe checkout coming soon"
-                    className="inline-flex h-12 cursor-not-allowed items-center justify-center gap-2 rounded-full border border-dashed border-[var(--border-strong)] bg-transparent px-7 text-[15px] font-medium text-[var(--fg-subtle)]"
-                  >
-                    <CreditCard className="h-4 w-4" />
-                    Stripe checkout - coming soon
-                  </button>
+                  <form action="/api/checkout" method="POST">
+                    <button
+                      type="submit"
+                      className={buttonStyles({ variant: "secondary", size: "lg" })}
+                    >
+                      <CreditCard className="h-4 w-4" />
+                      Pay ${site.pricing.deposit} deposit
+                    </button>
+                  </form>
                 </div>
+                <p className="mt-3 max-w-md text-xs text-[var(--fg-subtle)]">
+                  Ready to go at the standard price? Pay the 50% deposit
+                  securely through Stripe. Remaining ${site.pricing.setup - site.pricing.deposit} is due at launch.
+                </p>
+                <Suspense>
+                  <CheckoutNotice />
+                </Suspense>
               </div>
 
               <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg)]/40 p-6 backdrop-blur sm:p-8">

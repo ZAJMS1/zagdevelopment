@@ -15,6 +15,8 @@ export const site = {
   pricing: {
     setup: 750,
     monthly: 75,
+    // 50% of setup, charged upfront through Stripe Checkout.
+    deposit: 375,
     negotiableNote:
       "Pricing is negotiable - every business is different, so reach out and we'll tailor a quote that fits.",
   },
