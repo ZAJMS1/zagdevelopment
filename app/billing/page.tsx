@@ -18,9 +18,8 @@ export default function BillingPage() {
     <>
       <Section className="pt-16 sm:pt-20" eyebrow="For clients" title="Set up your monthly plan.">
         <p className="-mt-4 max-w-2xl text-pretty text-base leading-relaxed text-[var(--fg-muted)] sm:text-lg">
-          Pay your maintenance plan by card instead of sending it by hand each
-          month. Your first payment is today, then Stripe charges the same
-          card automatically every month.
+          Pay your maintenance plan by card. Your first payment is today,
+          then Stripe charges the same card automatically every month.
         </p>
       </Section>
 
